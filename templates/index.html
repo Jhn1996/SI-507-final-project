@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF8"/>
+    <title>Covid-19 US Data Insights</title>
+    <style type="text/css">
+        .header{
+            text-align: center;
+            background-color: rgb(136, 185, 229);
+            padding: 10px;
+            height: 100px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .header1{
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .p{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        input[type=text], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px auto;
+  display: inline-block;
+  border: 1px solid rgb(136, 185, 229);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  align-content: center;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Covid-19 US Data Insights</h1>
+    </div>
+    <div class="header1">
+        <h2>Today's top 5 news headlines about Covid-19</h2>
+        <ul style="list-style-type:none;">
+            {% for i in news_title_url %}
+                <li><a href ={{i[1]}}>{{i[0]}}></a></li>
+            {% endfor %}
+            </ul>
+        <h2>Overall Cases and Death Number Across the States in the United States </h2>
+        <h3>Updated on {{recent_date}}</h3>
+        <p>Note: The Original data source release updated data on random times during the day.<br> Therefore, this site was designed to retrieve the latest data available from the original data source.</p>
+        {{plot_div | safe}}
+        <form action="/handle_form" method="POST">
+            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">
+                Search State: <input name="state_input" type="text"/> <input type="submit" value="Search"/>
+            </p>
+            </form>
+            <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Data retrieved from the <a href="https://github.com/nytimes/covid-19-data">New York Times Coronavirus (Covid-19) Data</a></h4>
+        </div>
+        </body>
+</html>

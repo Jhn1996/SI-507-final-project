@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF8"/>
+    <title>State County Data</title>
+    <style type="text/css">
+         .header{
+            text-align: center;
+            background-color: rgb(136, 185, 229);
+            padding: 10px;
+            height: 100px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .header1{
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        table, td, th {
+            border: 1px solid  rgb(136, 185, 229);
+            text-align: left;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+            COVID-19 County Data for {{state_input}}
+        </h1>
+    </div>
+</body>
+    <div class="header1">
+        <h3>Latest data visualization and table as of {{recent_date}}</h3>
+    </div>
+        {{plot_div_two | safe}}
+    <table>
+        <tr>
+            <th>County</th>
+            <th>Cases</th>
+            <th>Deaths</th>
+        </tr>
+        {% for i in mapped %}
+        <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</script>
+</html>
