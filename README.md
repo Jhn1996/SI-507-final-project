@@ -1,6 +1,6 @@
-# Covid-19 New York Times Data Insights
+# New York Times Covid-19 Data Insights
 
-## instructions
+## Instructions
 A Newsapi key is needed to run the program, you can register and retrieve the key at https://newsapi.org/.
 
 Copy the API key to a python file named secrets.py under the current directory with the following format:
